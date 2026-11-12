@@ -111,7 +111,7 @@ server {
 
 - Comando de instalación CLI utilizado (sin contraseñas) y captura de Moodle funcionando por HTTPS.
 
-  ```bash
+```bash
     sudo -u www-data php /var/www/moodle/public/admin/cli/install.php \
     --chmod=2770 \
     --lang=es \
@@ -129,27 +129,27 @@ server {
     --adminpass="***" \
     --adminemail=admin@gonzalonazareno.org \
     --agree-license
-  ```
+```
 
- ![alt text](img/15.png)
+![alt text](img/15.png)
 
 
 - Ficheros .service y .timer del cron y salida de systemctl list-timers.
 
- ![alt text](img/16.png)
+![alt text](img/16.png)
  
 - Configuración de sesiones/caché de Moodle en Redis y salida de redis-cli con claves de sesión.
 
- ![alt text](img/17.png)
- ![alt text](img/18.png)
+![alt text](img/17.png)
+![alt text](img/18.png)
  
 - Filtro y jail de fail2ban para Moodle y prueba del baneo.
 
- ![alt text](img/19.png)
+![alt text](img/19.png)
  
 - Prueba de que no se ejecuta PHP en directorios de subidas.
 
- ![alt text](img/20.png)
+![alt text](img/20.png)
  
     
 - Fichero drop-in de systemd de PHP-FPM y salida de systemd-analyze security antes y después
