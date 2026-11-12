@@ -17,27 +17,28 @@ Como podemos ver estan ambas vulnerabilidades resueltas por lo que no tenemos qu
 
 ## server2:
 - Configuración de pg_hba.conf y de postgresql.conf que has modificado (sólo las líneas relevantes).
-   ![alt text](img/3.png)
-   ![alt text](img/4.png)
+![alt text](img/3.png)
+![alt text](img/4.png)
 
 - Salida de \conninfo y de pg_stat_ssl mostrando conexión cifrada, y capturas de rechazo sin TLS / desde otra IP.
-   ![alt text](img/5.png)
-   ![alt text](img/6.png)
-   ![alt text](img/7.png)
-    
+![alt text](img/5.png)
+![alt text](img/6.png)
+![alt text](img/7.png)
+ 
 - Fichero /etc/nftables.conf, salida de sudo nft list ruleset y resultado de las pruebas con nmap/nc.
 
-   ![alt text](img/8.png)
+![alt text](img/8.png)
 
-   ![alt text](img/9.png)
-    
-    - Configuración de Redis relevante (bind, autenticación).
-   ![alt text](img/10.png)
+![alt text](img/9.png)
+ 
+- Configuración de Redis relevante (bind, autenticación).
+ 
+![alt text](img/10.png)
 
 ## server1:
 
 - Fichero de configuración del pool de PHP-FPM y de PHP que has creado.
-   ![alt text](img/11.png)
+![alt text](img/11.png)
 
 - Server block de nginx, salida de nginx -t y comprobación del certificado (openssl s_client) y de las cabeceras (curl -I).
 
@@ -100,13 +101,13 @@ server {
     location ~* /(?:behat|tests|fixtures|node_modules|vendor)/ {
 
 ```
-   ![alt text](img/12.png)
+![alt text](img/12.png)
 
-   ![alt text](img/13.png)
+![alt text](img/13.png)
 
 - Estructura de directorios y permisos de Moodle, moodledata y config.php (ls -l, namei -l) (sin mostrar contraseñas).
 
-   ![alt text](img/14.png)
+![alt text](img/14.png)
 
 - Comando de instalación CLI utilizado (sin contraseñas) y captura de Moodle funcionando por HTTPS.
 
@@ -130,26 +131,26 @@ server {
     --agree-license
   ```
 
-    ![alt text](img/15.png)
+ ![alt text](img/15.png)
 
 
 - Ficheros .service y .timer del cron y salida de systemctl list-timers.
 
-    ![alt text](img/16.png)
-    
+ ![alt text](img/16.png)
+ 
 - Configuración de sesiones/caché de Moodle en Redis y salida de redis-cli con claves de sesión.
 
-    ![alt text](img/17.png)
-    ![alt text](img/18.png)
-    
+ ![alt text](img/17.png)
+ ![alt text](img/18.png)
+ 
 - Filtro y jail de fail2ban para Moodle y prueba del baneo.
 
-    ![alt text](img/19.png)
-    
+ ![alt text](img/19.png)
+ 
 - Prueba de que no se ejecuta PHP en directorios de subidas.
 
-    ![alt text](img/20.png)
-    
+ ![alt text](img/20.png)
+ 
     
 - Fichero drop-in de systemd de PHP-FPM y salida de systemd-analyze security antes y después
 
