@@ -36,10 +36,10 @@ Como podemos ver estan ambas vulnerabilidades resueltas por lo que no tenemos qu
 
 ## server1:
 
-    - Fichero de configuración del pool de PHP-FPM y de PHP que has creado.
+- Fichero de configuración del pool de PHP-FPM y de PHP que has creado.
    ![alt text](img/11.png)
 
-    - Server block de nginx, salida de nginx -t y comprobación del certificado (openssl s_client) y de las cabeceras (curl -I).
+- Server block de nginx, salida de nginx -t y comprobación del certificado (openssl s_client) y de las cabeceras (curl -I).
 
     ```conf
     alex@server1:~$ sudo cat /etc/nginx/sites-available/00-moodle.conf
@@ -104,11 +104,11 @@ server {
 
    ![alt text](img/13.png)
 
-    - Estructura de directorios y permisos de Moodle, moodledata y config.php (ls -l, namei -l) (sin mostrar contraseñas).
+- Estructura de directorios y permisos de Moodle, moodledata y config.php (ls -l, namei -l) (sin mostrar contraseñas).
 
    ![alt text](img/14.png)
 
-    - Comando de instalación CLI utilizado (sin contraseñas) y captura de Moodle funcionando por HTTPS.
+- Comando de instalación CLI utilizado (sin contraseñas) y captura de Moodle funcionando por HTTPS.
 
     ```bash
     sudo -u www-data php /var/www/moodle/public/admin/cli/install.php \
