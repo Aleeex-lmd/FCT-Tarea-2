@@ -133,46 +133,46 @@ server {
     ![alt text](img/15.png)
 
 
-    - Ficheros .service y .timer del cron y salida de systemctl list-timers.
+- Ficheros .service y .timer del cron y salida de systemctl list-timers.
 
     ![alt text](img/16.png)
     
-    - Configuración de sesiones/caché de Moodle en Redis y salida de redis-cli con claves de sesión.
+- Configuración de sesiones/caché de Moodle en Redis y salida de redis-cli con claves de sesión.
 
     ![alt text](img/17.png)
     ![alt text](img/18.png)
     
-    - Filtro y jail de fail2ban para Moodle y prueba del baneo.
+- Filtro y jail de fail2ban para Moodle y prueba del baneo.
 
     ![alt text](img/19.png)
     
-    - Prueba de que no se ejecuta PHP en directorios de subidas.
+- Prueba de que no se ejecuta PHP en directorios de subidas.
 
     ![alt text](img/20.png)
     
     
-    - Fichero drop-in de systemd de PHP-FPM y salida de systemd-analyze security antes y después
+- Fichero drop-in de systemd de PHP-FPM y salida de systemd-analyze security antes y después
 
 
 ## Respuesta a las preguntas planteadas:
 
-    - ¿Por qué es importante que el código de Moodle no sea escribible por el usuario de PHP-FPM y que moodledata esté fuera de la raíz web?
+- ¿Por qué es importante que el código de Moodle no sea escribible por el usuario de PHP-FPM y que moodledata esté fuera de la raíz web?
     Es importante ya que si un usuario malicioo intentara atacar nuestra web directamente desde el usuuario web si pudiese escrir podria añadir codigo malicioso, al restringir la escritura al usuario web nos quitamos ese problema.
     Tambien es importante que los datos esten fuera del directorio raiz para que no sean accesibles por ngix y este no los meta en un enlace que pueda ser accesible por usuarios no deseados.
 
 
-    - ¿Por qué un servidor de base de datos no debe tener registro en el DNS externo y cómo sirve el certificado comodín para cifrar la conexión con PostgreSQL?
+- ¿Por qué un servidor de base de datos no debe tener registro en el DNS externo y cómo sirve el certificado comodín para cifrar la conexión con PostgreSQL?
     Al no tener dns externo nos evitamos problemas de ataques al servidor de base de datos ya que para poder accceder a este necesitamos estar en la misma red.
     El usar un cifrado hace que nadie que intercepte la comunicacion entre el cliente y el servidor pueda descifrarla sin las claves por lo cual lo vuelve mas seguro.
 
 
-    - ¿Qué ventajas e inconvenientes tiene guardar las sesiones de Moodle en Redis?
+- ¿Qué ventajas e inconvenientes tiene guardar las sesiones de Moodle en Redis?
     Las ventajas mas notables son un mayor rendimiento y la posibilidad de escalar a una arquitectura mas grande y los inconveniente son la volatilidad del srvicio al estar almacenado en ram, por lo tanto tambien un mayor consumo de memoria ram y que si redis cae moodle no podria acceder a las sesiones de los ususarios.
 
-    - ¿En qué consiste la vulnerabilidad PHP2Shell y qué medidas has tomado (y cuáles no te habrían protegido)?
+- ¿En qué consiste la vulnerabilidad PHP2Shell y qué medidas has tomado (y cuáles no te habrían protegido)?
     La vulneravilidad consiste en unos fallos que tiene el servicio al prodiucise un desbordamiento de memoria los cuales permiten desde la ejecucion de codigo remoto hasta la filtracion de datos sensibles de la web.
     La medida que he probado y me ha funcionado ha sido buscar una version de php en la que esten parcheadas ambas vulneravilidades. Lo que no me sirvio fue midificicar a nivel de permisos ni aislar el moodle data ya que por decirlo de alguna forma el atacante se saltaria esas medidas.
     
     
-    - ¿Qué diferencia hay entre verify-ca y verify-full en PostgreSQL?
+- ¿Qué diferencia hay entre verify-ca y verify-full en PostgreSQL?
     El verify-ca acepta la conexion si el certoficado esta firmado por una autoridad certificadora que sea de confianza mientras que el verify-full hace eso y ademas mira si el dominio coincide con el configurado en la misma conexion y si este no coincide la rechaza.
