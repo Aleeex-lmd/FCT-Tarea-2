@@ -4,7 +4,6 @@
 
 ![alt text](img/0.png)
 
-
 ![alt text](img/1.png)
 
 ## PHP2Shell: versión de PHP instalada, resultado de tu comprobación del changelog / Debian Security Tracker y decisión tomada si no estaba corregida.
@@ -16,13 +15,19 @@ Me he decantado por la version 8.4.27-1~deb13u1 de php ya que corrije las dos vu
 Como podemos ver estan ambas vulnerabilidades resueltas por lo que no tenemos que hacer nada mas.
 
 ## server2:
+
 - Configuración de pg_hba.conf y de postgresql.conf que has modificado (sólo las líneas relevantes).
+
 ![alt text](img/3.png)
+
 ![alt text](img/4.png)
 
 - Salida de \conninfo y de pg_stat_ssl mostrando conexión cifrada, y capturas de rechazo sin TLS / desde otra IP.
+  
 ![alt text](img/5.png)
+
 ![alt text](img/6.png)
+
 ![alt text](img/7.png)
  
 - Fichero /etc/nftables.conf, salida de sudo nft list ruleset y resultado de las pruebas con nmap/nc.
@@ -38,6 +43,7 @@ Como podemos ver estan ambas vulnerabilidades resueltas por lo que no tenemos qu
 ## server1:
 
 - Fichero de configuración del pool de PHP-FPM y de PHP que has creado.
+- 
 ![alt text](img/11.png)
 
 - Server block de nginx, salida de nginx -t y comprobación del certificado (openssl s_client) y de las cabeceras (curl -I).
@@ -141,6 +147,7 @@ server {
 - Configuración de sesiones/caché de Moodle en Redis y salida de redis-cli con claves de sesión.
 
 ![alt text](img/17.png)
+
 ![alt text](img/18.png)
  
 - Filtro y jail de fail2ban para Moodle y prueba del baneo.
