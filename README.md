@@ -16,16 +16,16 @@ Me he decantado por la version 8.4.27-1~deb13u1 de php ya que corrije las dos vu
 Como podemos ver estan ambas vulnerabilidades resueltas por lo que no tenemos que hacer nada mas.
 
 ## server2:
-    - Configuración de pg_hba.conf y de postgresql.conf que has modificado (sólo las líneas relevantes).
+- Configuración de pg_hba.conf y de postgresql.conf que has modificado (sólo las líneas relevantes).
    ![alt text](img/3.png)
    ![alt text](img/4.png)
 
-    - Salida de \conninfo y de pg_stat_ssl mostrando conexión cifrada, y capturas de rechazo sin TLS / desde otra IP.
+- Salida de \conninfo y de pg_stat_ssl mostrando conexión cifrada, y capturas de rechazo sin TLS / desde otra IP.
    ![alt text](img/5.png)
    ![alt text](img/6.png)
    ![alt text](img/7.png)
     
-    - Fichero /etc/nftables.conf, salida de sudo nft list ruleset y resultado de las pruebas con nmap/nc.
+- Fichero /etc/nftables.conf, salida de sudo nft list ruleset y resultado de las pruebas con nmap/nc.
 
    ![alt text](img/8.png)
 
@@ -41,7 +41,7 @@ Como podemos ver estan ambas vulnerabilidades resueltas por lo que no tenemos qu
 
 - Server block de nginx, salida de nginx -t y comprobación del certificado (openssl s_client) y de las cabeceras (curl -I).
 
-    ```conf
+```conf
     alex@server1:~$ sudo cat /etc/nginx/sites-available/00-moodle.conf
 server {
     if ($host = moodle-testing.gonzalonazareno.org) {
@@ -99,7 +99,7 @@ server {
 
     location ~* /(?:behat|tests|fixtures|node_modules|vendor)/ {
 
-    ```
+```
    ![alt text](img/12.png)
 
    ![alt text](img/13.png)
@@ -110,7 +110,7 @@ server {
 
 - Comando de instalación CLI utilizado (sin contraseñas) y captura de Moodle funcionando por HTTPS.
 
-    ```bash
+  ```bash
     sudo -u www-data php /var/www/moodle/public/admin/cli/install.php \
     --chmod=2770 \
     --lang=es \
@@ -128,7 +128,7 @@ server {
     --adminpass="***" \
     --adminemail=admin@gonzalonazareno.org \
     --agree-license
-    ```
+  ```
 
     ![alt text](img/15.png)
 
